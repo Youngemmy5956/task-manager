@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Tasks from './Tasks';
 import AddTask from './AddTask';
+import Swal from 'sweetalert2'
 // Hooks
 import { useState, useEffect } from 'react';
 // Packages

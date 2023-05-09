@@ -26,7 +26,13 @@ const addTask = (task) => {
     const id = uuidv4();
     const newTask = { id, ...task }
     setTasks([...tasks, newTask]);
-    alert('You have successfully added a new task!');
+    // alert('You have successfully added a new task!');
+    Swal.fire({
+        title: 'Error!',
+        text: 'You have successfully added a new task!',
+        icon: 'Oops',
+        confirmButtonText: 'Cool'
+      })
     localStorage.setItem("taskAdded", JSON.stringify([...tasks, newTask]));
 }
 
@@ -53,7 +59,14 @@ useEffect(() => {
 const deleteTask = (id) => {
   const deleteTask = tasks.filter((task) => task.id !== id);
   setTasks(deleteTask);
-  alert('You have successfully deleted a task!')
+//   alert('You have successfully deleted a task!')
+Swal.fire({
+    title: 'Error!',
+    text: 'You have successfully deleted a task!',
+    icon: 'Oops',
+    confirmButtonText: 'Cool'
+  })
+
   localStorage.setItem("taskAdded", JSON.stringify(deleteTask));
 }
 

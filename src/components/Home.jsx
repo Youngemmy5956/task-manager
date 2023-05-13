@@ -28,7 +28,7 @@ const addTask = (task) => {
     setTasks([...tasks, newTask]);
     // alert('You have successfully added a new task!');
     Swal.fire({
-        title: 'Error!',
+        title: 'Success!!!',
         text: 'You have successfully added a new task!',
         icon: 'Oops',
         confirmButtonText: 'Cool'
@@ -61,7 +61,7 @@ const deleteTask = (id) => {
   setTasks(deleteTask);
 //   alert('You have successfully deleted a task!')
 Swal.fire({
-    title: 'Error!',
+    title: 'Success!!!',
     text: 'You have successfully deleted a task!',
     icon: 'Oops',
     confirmButtonText: 'Cool'
@@ -106,7 +106,13 @@ const editTask = (id) => {
       }
       return x;
   })
-  alert('You have successfully edited an existing task!')
+  // alert('You have successfully edited an existing task!')
+  Swal.fire({
+    title: 'Success!!!',
+    text: 'You have successfully edited an existing task!!!',
+    icon: 'Oops',
+    confirmButtonText: 'Cool'
+  })
   localStorage.setItem("taskAdded", JSON.stringify(myData));
   window.location.reload();
 }
@@ -133,20 +139,20 @@ const editTask = (id) => {
               </div>
           </div> :
           <div className="container">
-            {/* App Header that has open and App Name */}
-            <Header showForm={() => setShowAddTask(!showAddTask)} changeTextAndColor={showAddTask} />
-              {/* Revealing of Add Task Form */}
-              {showAddTask && <AddTask onSave={addTask} />}
-              {/* Task Counter */}
-              <h3>Number of Tasks: {tasks.length}</h3>
-             
-              {/* Displaying of Tasks */}
-              {
-                tasks.length > 0 ?
-                  (<Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} />) :
-                  ('No Task Found!')
-              }
-          </div>
+          {/* App Header that has open and App Name */}
+          <Header showForm={() => setShowAddTask(!showAddTask)} changeTextAndColor={showAddTask} />
+            {/* Revealing of Add Task Form */}
+            {showAddTask && <AddTask onSave={addTask} />}
+            {/* Task Counter */}
+            <h3>Number of Tasks: {tasks.length}</h3>
+           
+            {/* Displaying of Tasks */}
+            {
+              tasks.length > 0 ?
+                (<Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} />) :
+                ('No Task Found!')
+            }
+        </div>
         }
         </>
   )
